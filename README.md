@@ -42,7 +42,7 @@ Para instalar esta biblioteca você deve colocar o seguinte código no seu pom.x
     <dependency>
         <groupId>com.tonyguerra122</groupId>
         <artifactId>youtube-dl</artifactId>
-        <version>1.1</version>
+        <version>v1.0.0</version>
     </dependency>
 </dependencies>
 
