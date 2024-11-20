@@ -18,8 +18,8 @@ A biblioteca verifica e instala automaticamente o youtube-dl ou yt-dlp. Certifiq
 ## Como Usar
 ### Baixar um Vídeo
 ```java
-import com.tonyguerra.utils.YoutubeUtils;
-import com.tonyguerra.enums.MediaType;
+import com.tonyguerra122.youtubedl.utils.YoutubeUtils;
+import com.tonyguerra122.youtubedl.enums.MediaType;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,3 +34,15 @@ public class Main {
 ```
 ## Personalizar Diretório de Downloads
 A biblioteca salva os arquivos baixados no diretório padrão definido pelo sistema `(SystemUtils.getDownloaderFolder())`. Para modificar o diretório, ajuste a implementação desse método ou passe uma pasta personalizada no `YoutubeDLRequest`.
+
+## Instalação
+Para instalar esta biblioteca você deve colocar o seguinte código no seu pom.xml
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.tonyguerra122</groupId>
+        <artifactId>youtube-dl</artifactId>
+        <version>1.1</version>
+    </dependency>
+</dependencies>
+```
