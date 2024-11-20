@@ -40,8 +40,8 @@ Para instalar esta biblioteca você deve colocar o seguinte código no seu pom.x
 ```xml
 <dependencies>
     <dependency>
-        <groupId>com.tonyguerra122</groupId>
-        <artifactId>youtube-dl</artifactId>
+        <groupId>com.github.TonyGuerra122</groupId>
+        <artifactId>yt-downloader</artifactId>
         <version>v1.0.0</version>
     </dependency>
 </dependencies>
