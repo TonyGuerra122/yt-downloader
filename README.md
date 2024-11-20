@@ -45,4 +45,11 @@ Para instalar esta biblioteca você deve colocar o seguinte código no seu pom.x
         <version>1.1</version>
     </dependency>
 </dependencies>
+
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 ```
