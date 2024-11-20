@@ -1,4 +1,4 @@
-# YoutubeUtils
+# YoutubeDownloader
 Uma biblioteca Java simples para baixar vídeos e áudios do YouTube com suporte a formatos de alta qualidade. Ela utiliza a biblioteca youtube-dl (ou yt-dlp) como backend e oferece uma interface para configurar e gerenciar downloads.
 Recursos
 -   Baixe vídeos em alta qualidade, com áudio mesclado automaticamente.
