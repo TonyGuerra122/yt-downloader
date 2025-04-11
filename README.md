@@ -18,8 +18,8 @@ A biblioteca verifica e instala automaticamente o youtube-dl ou yt-dlp. Certifiq
 ## Como Usar
 ### Baixar um Vídeo
 ```java
-import com.tonyguerra122.youtubedl.utils.YoutubeUtils;
-import com.tonyguerra122.youtubedl.enums.MediaType;
+import com.tonyguerra122.ytmediadownloader.utils.YoutubeUtils;
+import com.tonyguerra122.ytmediadownloader.enums.MediaType;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,6 +32,25 @@ public class Main {
     }
 }
 ```
+
+### Obter informações de um vídeo
+```java
+import com.tonyguerra.ytmediadownloader.utils.YoutubeUtils;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        final var info = YoutubeUtils.getVideoInfo("https://www.youtube.com/watch?v=jU27QehicQQ");
+
+        System.out.println("Título: " + info.title());
+        System.out.println("Thumbnail: " + info.thumbnail());
+        System.out.println("Autor: " + info.author());
+        System.out.println("Descrição: " + info.description());
+        System.out.println("Duração: " + info.duration());
+        System.out.println("Resolução: " + info.resolution());
+    }
+}
+```
+
 ## Personalizar Diretório de Downloads
 A biblioteca salva os arquivos baixados no diretório padrão definido pelo sistema `(SystemUtils.getDownloaderFolder())`. Para modificar o diretório, ajuste a implementação desse método ou passe uma pasta personalizada no `YoutubeDLRequest`.
 
@@ -42,7 +61,7 @@ Para instalar esta biblioteca você deve colocar o seguinte código no seu pom.x
     <dependency>
         <groupId>com.github.TonyGuerra122.ytmediadownloader</groupId>
         <artifactId>yt-downloader</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
     </dependency>
 </dependencies>
 

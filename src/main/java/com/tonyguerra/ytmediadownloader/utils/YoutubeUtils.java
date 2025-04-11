@@ -1,7 +1,9 @@
 package com.tonyguerra.ytmediadownloader.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sapher.youtubedl.YoutubeDL;
 import com.sapher.youtubedl.YoutubeDLRequest;
+import com.tonyguerra.ytmediadownloader.dto.VideoInfoDTO;
 import com.tonyguerra.ytmediadownloader.enums.MediaType;
 
 /**
@@ -40,6 +42,36 @@ public final class YoutubeUtils {
         } catch (Exception e) {
             System.err.println("Erro ao baixar mídia da URL: " + videoUrl);
             throw e;
+        }
+    }
+
+    /**
+     * Método utilizado para obter informações do vídeo
+     * 
+     * @param url URL do vídeo
+     * @return Informações do vídeo
+     * @throws Exception
+     */
+    public static VideoInfoDTO getVideoInfo(String url) throws Exception {
+        if (!SystemUtils.isYoutubeDLInstalled()) {
+            SystemUtils.installYoutubeDL();
+        }
+
+        final var request = new YoutubeDLRequest(url);
+        request.setOption("dump-json");
+
+        try {
+            System.out.println("Obtendo informações do vídeo: " + url);
+            final var response = YoutubeDL.execute(request);
+            System.out.println("Informações obtidas com sucesso!");
+
+            final var videoInfo = new ObjectMapper().readValue(response.getOut(), VideoInfoDTO.class);
+
+            return videoInfo;
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao obter informações do vídeo: " + url);
+            throw ex;
         }
     }
 }
