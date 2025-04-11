@@ -1,4 +1,4 @@
-package com.tonyguerra.errors;
+package com.tonyguerra.ytmediadownloader.errors;
 
 public final class UnsupportedOperationalSystemException extends Exception {
     public UnsupportedOperationalSystemException(String message) {

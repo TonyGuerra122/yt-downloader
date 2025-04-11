@@ -1,4 +1,4 @@
-package com.tonyguerra.enums;
+package com.tonyguerra.ytmediadownloader.enums;
 
 public enum MediaType {
     AUDIO("bestaudio"),

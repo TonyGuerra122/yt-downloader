@@ -1,4 +1,4 @@
-package com.tonyguerra.utils;
+package com.tonyguerra.ytmediadownloader.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Locale;
 
-import com.tonyguerra.errors.UnsupportedOperationalSystemException;
+import com.tonyguerra.ytmediadownloader.errors.UnsupportedOperationalSystemException;
 
 /**
  * Classe de utilitário do sistema operacional

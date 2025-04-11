@@ -1,8 +1,8 @@
-package com.tonyguerra.utils;
+package com.tonyguerra.ytmediadownloader.utils;
 
 import com.sapher.youtubedl.YoutubeDL;
 import com.sapher.youtubedl.YoutubeDLRequest;
-import com.tonyguerra.enums.MediaType;
+import com.tonyguerra.ytmediadownloader.enums.MediaType;
 
 /**
  * Classe para utilitário do Youtube
