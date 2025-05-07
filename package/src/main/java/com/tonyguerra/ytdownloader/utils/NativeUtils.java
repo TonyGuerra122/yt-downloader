@@ -1,14 +1,14 @@
 package com.tonyguerra.ytdownloader.utils;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public final class NativeUtils {
     public static void loadLibraryFromResources(String libName) {
         try {
             final String os = System.getProperty("os.name").toLowerCase();
-            String libFile = "";
+            String libFile;
 
             if (os.contains("linux")) {
                 libFile = "/native/linux/lib" + libName + ".so";
@@ -17,21 +17,24 @@ public final class NativeUtils {
             } else if (os.contains("mac")) {
                 libFile = "/native/macos/lib" + libName + ".dylib";
             } else {
-                throw new UnsupportedOperationException("OS não suportado");
+                throw new UnsupportedOperationException("Sistema operacional não suportado: " + os);
             }
 
             final var in = NativeUtils.class.getResourceAsStream(libFile);
             if (in == null)
-                throw new RuntimeException("Biblioteca não encontrada: " + libFile);
+                throw new RuntimeException("Biblioteca nativa não encontrada: " + libFile);
 
-            File tempFile = Files.createTempFile("lib", libName).toFile();
-            tempFile.deleteOnExit();
+            final var tempDir = Files.createTempDirectory("ytlibs");
+            tempDir.toFile().deleteOnExit();
 
-            try (FileOutputStream out = new FileOutputStream(tempFile)) {
+            final var extractedFile = tempDir.resolve(Paths.get(libFile).getFileName()).toFile();
+            extractedFile.deleteOnExit();
+
+            try (final var out = new FileOutputStream(extractedFile)) {
                 in.transferTo(out);
             }
 
-            System.load(tempFile.getAbsolutePath());
+            System.load(extractedFile.getAbsolutePath());
 
         } catch (Exception e) {
             throw new RuntimeException("Erro ao carregar biblioteca nativa", e);
